@@ -18,9 +18,7 @@ local Window = Zepth:Window({
 ## Tab
 
 ```lua
-local Tab = Window:Tab({
-    Name = "Main",
-})
+local Tab = Window:Tab({Name = "Main",})
 ```
 ## Button
 
@@ -31,6 +29,11 @@ local Button = Tab:Button({
         print("Clicked!")
     end
 })
+```
+
+To delete it you can use
+```lua
+Zepth:Destroy()
 ```
 
 We're updating...
