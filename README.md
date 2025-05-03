@@ -28,12 +28,4 @@ Zepth.Button({
 }, Tab)
 ```
 
-
-## Example Usage
-
-```lua
-local win = Library.Window("My UI")
-local tab = Library.Tab("Main Tab", win)
-
-
-```
+We're updating...
