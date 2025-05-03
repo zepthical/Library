@@ -1,16 +1,14 @@
-local Window = require(script.Window)
-local Tab = require(script.Tab)
+-- Load all parts from GitHub (example structure)
+local base = "https://raw.githubusercontent.com/yourusername/Library/main/Library/"
 
-local UILibrary = {}
-
-function UILibrary:CreateWindow(title)
-    local window = Window.new(title)
-
-    function window:CreateTab(tabName)
-        return Tab.new(tabName, self.MainFrame)
-    end
-
-    return window
+local function import(path)
+    return loadstring(game:HttpGet(base .. path))()
 end
 
-return UILibrary
+shared.UI = {}
+
+import("Window.lua")
+import("Tab.lua")
+import("Elements/Button.lua")
+
+return shared.UI
