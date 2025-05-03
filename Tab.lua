@@ -1,4 +1,9 @@
+-- Tab.lua
+local Button = loadstring(game:HttpGet("https://raw.githubusercontent.com/zepthical/Library/main/Library/Button.lua"))()
+
 return function(tabName, parent)
+    local tab = {}
+
     local label = Instance.new("TextLabel", parent)
     label.Name = tabName .. "_Tab"
     label.Text = tabName
@@ -7,5 +12,11 @@ return function(tabName, parent)
     label.TextColor3 = Color3.fromRGB(255, 255, 255)
     label.BorderSizePixel = 0
 
-    return label
+    tab.Frame = label
+
+    function tab:Button(config)
+        return Button(config, label)
+    end
+
+    return tab
 end
