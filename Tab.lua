@@ -1,25 +1,11 @@
-local Button = require(script.Parent.Elements.Button)
+return function(tabName, parent)
+    local label = Instance.new("TextLabel", parent)
+    label.Name = tabName .. "_Tab"
+    label.Text = tabName
+    label.Size = UDim2.new(1, 0, 0, 30)
+    label.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.BorderSizePixel = 0
 
-local Tab = {}
-Tab.__index = Tab
-
-function Tab.new(title, parentFrame)
-    local self = setmetatable({}, Tab)
-
-    local tabFrame = Instance.new("Frame")
-    tabFrame.Size = UDim2.new(1, 0, 1, 0)
-    tabFrame.BackgroundTransparency = 1
-    tabFrame.Name = title
-    tabFrame.Parent = parentFrame
-
-    self.Frame = tabFrame
-    self.Title = title
-
-    return self
+    return label
 end
-
-function Tab:Button(options)
-    Button.new(options, self.Frame)
-end
-
-return Tab
