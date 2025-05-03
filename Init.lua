@@ -1,18 +1,14 @@
-local Library = {}
+local base = "https://raw.githubusercontent.com/zepthical/Library/main/"
 
-function Library:Load()
-    local base = "https://raw.githubusercontent.com/zepthical/Library/main/"
-
-    local function import(path)
-        return loadstring(game:HttpGet(base .. path))()
-    end
-
-    Library.Window = import("Window.lua")
-    Library.Tab = import("Tab.lua")
-    Library.Button = import("Elements/Button.lua")
-    -- Add other elements as needed
-
-    return Library
+local function import(path)
+    return loadstring(game:HttpGet(base .. path))()
 end
+
+local Library = {
+    Window = import("Window.lua"),
+    Tab = import("Tab.lua"),
+    Button = import("Elements/Button.lua"),
+    -- add Toggle, Dropdown later
+}
 
 return Library
