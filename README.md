@@ -20,12 +20,12 @@ local Tab = Window.Tab("Example Tab", Window)
 ## Button
 
 ```lua
-Zepth.Button({
+Tab.Button({
     Name = "Click Me",
     Callback = function()
         print("Button clicked!")
     end
-}, Tab)
+})
 ```
 
 We're updating...
