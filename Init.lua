@@ -1,14 +1,18 @@
--- Load all parts from GitHub (example structure)
-local base = "https://raw.githubusercontent.com/yourusername/Library/main/Library/"
+local Library = {}
 
-local function import(path)
-    return loadstring(game:HttpGet(base .. path))()
+function Library:Load()
+    local base = "https://raw.githubusercontent.com/zepthical/Library/main/"
+
+    local function import(path)
+        return loadstring(game:HttpGet(base .. path))()
+    end
+
+    Library.Window = import("Window.lua")
+    Library.Tab = import("Tab.lua")
+    Library.Button = import("Elements/Button.lua")
+    -- Add other elements as needed
+
+    return Library
 end
 
-shared.UI = {}
-
-import("Window.lua")
-import("Tab.lua")
-import("Elements/Button.lua")
-
-return shared.UI
+return Library
