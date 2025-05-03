@@ -4,10 +4,12 @@ local function import(path)
     return loadstring(game:HttpGet(base .. path))()
 end
 
-local Library = {
-    Window = import("Window.lua"),
-    Tab = import("Tab.lua"),
-    Button = import("Elements/Button.lua")
-}
+local Library = {}
+Library.__index = Library
 
-return Library
+function Library:Window(config)
+    local window = import("Window.lua")(config)
+    return window
+end
+
+return setmetatable({}, Library)
