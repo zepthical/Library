@@ -9,21 +9,26 @@ local Zepth = loadstring(game:HttpGet("https://raw.githubusercontent.com/zepthic
 ## Window
 
 ```lua
-local Window = Zepth.Window("Example UI")
+local Window = Zepth:Window({
+    Name = "Example",
+    Theme = "Dark",
+})
 ```
 
 ## Tab
 
 ```lua
-local Tab = Window.Tab("Example Tab", Window)
+local Tab = Window:Tab({
+    Name = "Main",
+})
 ```
 ## Button
 
 ```lua
-Tab.Button({
+local Button = Tab:Button({
     Name = "Click Me",
     Callback = function()
-        print("Button clicked!")
+        print("Clicked!")
     end
 })
 ```
