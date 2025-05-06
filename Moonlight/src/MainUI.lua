@@ -1,1 +1,0 @@
--- Placeholder for future window logic (e.g. drag, resize, minimize, close)
